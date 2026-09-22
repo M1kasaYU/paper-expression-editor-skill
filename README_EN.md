@@ -2,9 +2,7 @@
 
 English · [简体中文](README.md)
 
-A Codex skill for evidence-preserving post-editing of Chinese academic papers, theses, research proposals, and technical reports. It works on completed drafts, identifies formulaic, repetitive, vague, or mechanical wording, and makes minimal revisions while protecting facts, data, citations, research stage, and conclusion boundaries.
-
-“Reducing AI-like phrasing” means improving observable writing issues. This skill **does not identify whether a text was written by AI**, estimate an AI-generated percentage, or guarantee the outcome of any detector.
+A Codex skill for reviewing and improving existing drafts of Chinese academic papers, theses, research proposals, and research reports. It locates observable AI-like writing patterns such as formulaic phrases, mechanical sentence structures, empty transitions, repetitive summaries, and vague claims; explains each issue; and provides meaning-preserving suggestions or ready-to-use replacements. Revisions protect research facts, data, citations, terminology, research stage, causal relations, and conclusion boundaries.
 
 ## What it does
 
