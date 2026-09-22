@@ -2,7 +2,7 @@
 
 English · [简体中文](README.md)
 
-A Codex skill for reviewing and revising the wording of Chinese academic papers, theses, research proposals, and technical reports. It helps identify formulaic transitions, repetitive sentence patterns, vague claims, and dense punctuation, then proposes clearer wording while preserving the author's meaning and evidence.
+A Codex skill for evidence-preserving post-editing of Chinese academic papers, theses, research proposals, and technical reports. It works on completed drafts, identifies formulaic, repetitive, vague, or mechanical wording, and makes minimal revisions while protecting facts, data, citations, research stage, and conclusion boundaries.
 
 “Reducing AI-like phrasing” means improving observable writing issues. This skill **does not identify whether a text was written by AI**, estimate an AI-generated percentage, or guarantee the outcome of any detector.
 
@@ -12,6 +12,7 @@ A Codex skill for reviewing and revising the wording of Chinese academic papers,
 - **Revise:** provide usable replacement text while checking terms, numbers, citations, comparison conditions, and the strength of conclusions.
 - **Support manual edits:** return exact, continuous source text that can be searched in Word, together with complete replacement text.
 - **Apply requested style preferences:** review repeated semicolons, empty perspective phrases, parallel paragraph openings, author-reference wording, and heading punctuation when the user or target style guide calls for it.
+- **Audit meaning:** create a Meaning Lock before substantive edits and follow `Lock → Diagnose → Decide → Revise → Audit`.
 
 The skill distinguishes wording edits from factual gaps. It does not invent experiments, results, sources, or limitations to make a passage sound more polished.
 
@@ -45,7 +46,15 @@ For an AI tool that does not support Codex skills, copy the standalone [Chinese 
         ├── review-checklist.md
         ├── revision-guide.md
         ├── fact-check.md
+        ├── core-contract.md
+        ├── meaning-audit.md
+        ├── issue-taxonomy.md
+        ├── output-formats.md
         └── style-profile.md
+    └── examples/
+        ├── sentence-cases.md
+        ├── document-type-cases.md
+        └── full-review-example.md
 ```
 
 The skill loads references as needed. When using the standalone prompt elsewhere, attach any additional reference files you want the AI to follow; naming a file alone does not give the AI access to it.
@@ -53,6 +62,14 @@ The skill loads references as needed. When using the standalone prompt elsewhere
 ## Scope
 
 Review only the material actually provided. A passage cannot establish the style of a whole paper, and extracted text alone cannot verify figures or final layout. Common academic terms, parallel structure, semicolons, and phrases such as “from this perspective” are not errors by themselves. Follow the user's instructions and applicable institutional or journal requirements for wording, citation style, and disclosure of AI assistance.
+
+## Method
+
+1. **Lock:** record research stage, scope, numbers, citations, terminology, and conclusion strength.
+2. **Diagnose:** locate evidence-based issues across facts, scope, logic, paragraphs, sentences, and wording.
+3. **Decide:** choose `KEEP`, `REVISE`, `DELETE`, or `AUTHOR_CHECK` for each candidate.
+4. **Revise:** make the smallest change that resolves the issue and keep sound sentences.
+5. **Audit:** compare source and revision for factual, citation, stage, causal, and scope drift.
 
 ## Design and license
 
