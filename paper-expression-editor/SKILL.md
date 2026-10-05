@@ -1,36 +1,35 @@
 ---
 name: paper-expression-editor
-description: Use when a user asks to review or revise Chinese academic papers, theses, proposals, or research reports for formulaic, repetitive, vague, or mechanically structured wording while preserving evidence and meaning.
+description: Review and polish existing Chinese academic drafts across disciplines for graduate and undergraduate writers. Use for papers, theses, reviews, proposals, and research reports that need natural academic expression, clearer argumentation, or journal-specific style adaptation while preserving meaning and evidence.
 license: MIT
 ---
 
-# 中文论文证据保留型表达编辑
+# 中文学术表达审查与润色
 
-本 Skill 面向已经完成或已有初稿的学术文本，依据可观察的表达与论证问题进行保真编辑。它不从零生成论文，不判断作者身份，不估计 AI 概率，也不承诺检测结果。
+面向各学科研究生与本科生的已有初稿，以研究生学术写作的严谨要求为默认编辑目标。识别模板化、机械化、重复和不自然的表达，在保留有效信息的基础上改善准确性、逻辑性、连贯性和学术语气。严格体现在判断有依据、改写可核对；不以修改数量、缩短篇幅或堆砌术语体现严格。
 
-核心工作流：Lock → Diagnose → Decide → Revise → Audit。先锁定语义，再诊断、决策、最小修改和审计。核心优先级：事实 > 命题范围 > 逻辑关系 > 段落组织 > 句式 > 词汇标点。
+使用 Lock → Diagnose → Decide → Revise → Audit 闭环，按事实 > 命题范围 > 逻辑关系 > 段落组织 > 句式 > 词汇标点处理。轻度润色控制不必要的干预；允许段落优化时，可拆句、重组和整合真实重复。最小充分修改不要求最短稿。
 
 ## 按任务加载
 
-- **只评阅不改稿：**读 [评阅清单](references/review-checklist.md)，交付已查范围、可定位原文和已确认问题。
-- **要改写：**读 [改写指南](references/revision-guide.md)；先定位再给可直接用的改写稿。
-- **任何需要保真改写的任务：**读 [核心契约](references/core-contract.md)，先建立 Meaning Lock。
-- **完成改写后：**读 [语义审计](references/meaning-audit.md)，逐项比较原文与改写稿。
-- **碰到数字、公式、引文、方法、结论：**读 [事实复核清单](references/fact-check.md)，逐项冻结核对。
-- **需要给问题编号或统计类型：**读 [问题分类](references/issue-taxonomy.md)。
-- **用户指定交付形态：**读 [输出格式](references/output-formats.md)。
-- **需要边界示例时：**读 `examples/` 中与文体相符的案例，不要默认加载全部案例。
-- **开题、计划类材料：**“拟、计划、将、预期”与已完成严格区分，不得改写时态。
-- **需要统一写法或保留作者风格时：**读 [风格档案](references/style-profile.md)。有导师样例、本次要求或适用规范时先核对，再决定是否采用档案默认；无需统一写法时不加载。
+- **只评阅：**读 [评阅清单](references/review-checklist.md)，交付实际查看范围、有证据的问题与建议。
+- **要改写：**读 [核心契约](references/core-contract.md) 与 [改写指南](references/revision-guide.md)，改后读 [语义审计](references/meaning-audit.md)。
+- **不同学科、研究范式或章节功能影响判断：**读 [学科与文体适配](references/discipline-and-genre.md)。默认规则跨学科；不将实验、模型或统计检验设为所有稿件的必填项。
+- **按目标期刊润色或参照优秀论文：**读 [期刊适配](references/journal-adaptation.md)，区分实际核对的规范与参考写法。
+- **涉及材料、数据、公式、引文、方法或强主张：**按需读 [事实复核](references/fact-check.md)，核对受影响的证据。
+- **需要编号或统计：**读 [问题分类](references/issue-taxonomy.md)；需要表格、整稿或手动替换时读 [输出格式](references/output-formats.md)。
+- **需要统一写法或有作者/导师样例：**读 [风格档案](references/style-profile.md)。个人标点习惯须用户选择，不自动施加给所有稿件。
+- **需要示例：**句子边界见 [句子案例](examples/sentence-cases.md)，完整段落见 [段落案例](examples/paragraph-cases.md)，文体区别见 [文体案例](examples/document-type-cases.md)，闭环交付见 [完整评阅示例](examples/full-review-example.md)。只读相关案例。
 
-## 共同规则
+## 共同要求
 
-1. 先确认本轮范围、目标文体、导师或格式要求、作者样例和排除项。标黄只表示待复查，不等于有问题。
-2. 只改损害清晰度或论证的表达。正常术语、平行结构、必要重复和标点一律保留；不批量删除“从……看”“进一步”“综上所述”或分号。
-3. 以核心契约中的 Meaning Lock 为冻结基线。无材料支撑的数值、显著性、文献、效果和局限一律不补写；影响科学含义的改动标“待作者确认”，不直接写入定稿。
-4. 严格区分三类输出：**表达问题**可直改、**格式偏好**须有依据才统一、**事实待核验**只标缺口。少分号、无顿号标题、“等人”写法属于格式偏好，以本次要求和投稿规范为准。
-5. 供 Word 手动修改时，给出章节标题、可搜索连续原文、问题依据、完整替换稿和待核验项。搜索串必须逐字连续，不用省略号；只查片段就标片段，不声称全文通查，不沿用历史计数。
-6. 只要润色稿就直接给稿，只要诊断就只给问题单。不强行评分；任何分数只描述表达问题，不映射 AI 概率。
-7. 修改范围必须与问题范围一致。能改几个字解决的问题，不重写整段；正常句子保留。
+1. 从当前材料识别学科、研究范式、文体、章节、本轮范围与修改力度。信息足够就开始；仅在缺失背景会改变判断时简短询问，不强制完整问卷。标黄只表示待复查。
+2. “基于、针对、从……看、首先、综上所述”、多动词、平行结构和分号只作为候选线索。指出具体冗余、歧义、关系错误或阅读障碍后才列为问题；必要的学术句式与重复保留。
+3. 改写前核对对象、独立任务/论点、动作、条件、证据、关系、验证安排或成果属性。改后逐项对应；删除说明依据，迁移给出目标位置与整合稿，未落实迁移前不让用户直接删除。
+4. 理清原文已有关系与指代，改善搭配、语序及段落推进。不得编造事实、机制、文献、结果或局限来补篇幅。研究依据不足时单列缺口，不用语言润色掩盖。
+5. 研究阶段、术语、数据、引用绑定、比较范围、因果方向与结论强度保持。任何内容或主张变化标 `AUTHOR_CHECK`，不得悄悄写入等价替换稿。保留与改变命题的建议分开呈现。
+6. 区分已确认问题、可选润色、格式偏好、待核验；只评阅就不强制改稿，只要成稿就先给稿。表格给逐字连续搜索串及完整替换边界，不以节选、省略号或文件名代替定位文本。
+7. 只评价实际查看的材料；片段不推全文，未看引用原文不声称完成文献核验。正常内容允许 `KEEP`，不为填满表格强改，也不将输出评分映射为 AI 作者概率。
+8. 目标期刊适配依据实际规范与同类样例。提高表达质量是目标，不据此宣称研究已达到特定期刊录用要求。遵守适用的学校、期刊与项目要求。
 
-本 Skill 处理学术表达，不代替数据、实验、文献原文和适用规范的实际核验。用户当前明确要求优先于这里的默认建议。
+用户当前明确要求优先于默认编辑建议。本 Skill 处理已有文本的表达与论证呈现；不从零生成论文，不判断作者身份，也不承诺检测结果。
